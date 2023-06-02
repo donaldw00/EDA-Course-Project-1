@@ -1,0 +1,5 @@
+dataset <- read.table("C:\\Users\\patri\\OneDrive\\Documents\\R Programming 2022\\household_power_consumption.txt", header = T, sep=";")
+subset_data <- subset(dataset,dataset$Date=="1/2/2007" | dataset$Date=="2/2/2007")
+GlobalActivePower <- as.numeric(subset_data$Global_active_power)
+DateTime <- strptime(paste(subset_data$Date,subset_data$Time,sep = " "),"%d/%m/%Y %H:%M:%S")
+plot(DateTime, GlobalActivePower,xlab="",ylab="Global Active Power (kW)")
